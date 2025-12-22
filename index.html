@@ -61,11 +61,26 @@
       text-align: center;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.35s ease;
+      position: relative;
     }
 
     .product:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .product::after {
+      content: "✨";
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product:hover::after {
+      opacity: 1;
     }
 
     .product img {
@@ -82,7 +97,7 @@
       margin: 10px 0 6px;
     }
 
-    /* PRICE → BLUE */
+    /* PRICE */
     .price {
       color: #2f6fa3;
       font-size: 15px;
@@ -90,12 +105,13 @@
       font-weight: 500;
     }
 
+    /* BUTTONS */
     button, .social-btn {
       background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
       color: #fff6e5;
       border: none;
-      padding: 11px 26px;
-      border-radius: 40px;
+      padding: 11px 28px;
+      border-radius: 999px;
       font-size: 14px;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -109,7 +125,7 @@
       box-shadow: 0 10px 22px rgba(0,0,0,0.25);
     }
 
-    /* ABOUT SECTION */
+    /* ABOUT */
     .about {
       max-width: 800px;
       margin: 60px auto;
@@ -133,6 +149,39 @@
       line-height: 1.9;
     }
 
+    /* CLOUDS */
+    .clouds {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      background: #ffffff;
+      border-top-left-radius: 100% 60px;
+      border-top-right-radius: 100% 60px;
+      margin-top: 80px;
+    }
+
+    .clouds::before,
+    .clouds::after {
+      content: "";
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+
+    .clouds::before {
+      width: 180px;
+      height: 180px;
+      bottom: 30px;
+      left: 15%;
+    }
+
+    .clouds::after {
+      width: 220px;
+      height: 220px;
+      bottom: 20px;
+      right: 15%;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -143,6 +192,13 @@
     .copyright {
       color: #fff6e5;
       margin-bottom: 16px;
+    }
+
+    .contact-text {
+      color: #2f6fa3;
+      font-size: 14px;
+      margin-bottom: 14px;
+      font-weight: 500;
     }
 
     /* MOBILE */
@@ -167,28 +223,28 @@
 <header>
   <img src="logo.jpg" alt="Whimsy Hook Logo">
   <h1>Whimsy Hook</h1>
-  <div class="tagline">CROCHET DREAMS INTO REALITY</div>
+  <div class="tagline">CROCHET DREAMS INTO REALITY ✨</div>
 </header>
 
 <section class="products">
 
   <div class="product">
     <img src="plushie.jpg" alt="Bunny Plushie">
-    <h2>Bunny Plushie</h2>
+    <h2>🐰 Bunny Plushie</h2>
     <p class="price">$18</p>
     <button>Coming Soon</button>
   </div>
 
   <div class="product">
     <img src="plushie2.jpg" alt="Peach Bunny Plushie">
-    <h2>Peach Bunny Plushie</h2>
+    <h2>🍑 Peach Bunny</h2>
     <p class="price">$10</p>
     <button>Coming Soon</button>
   </div>
 
   <div class="product">
     <img src="scarf.jpg" alt="Scarf">
-    <h2>Scarf</h2>
+    <h2>🧣 Cozy Scarf</h2>
     <p class="price">$20</p>
     <button>Coming Soon</button>
   </div>
@@ -200,22 +256,27 @@
   <p>
     This business started off with a friend teaching her best friend how to crochet,
     and slowly started to grow bigger day by day.  
-    And these best friends built it brick by brick, with love, and purity until its
-    branches grew enormously.  
-    Legends say that till this day, it's still growing...
+    Built stitch by stitch, with love and purity —  
+    legends say it’s still growing☁️🧶
   </p>
 </section>
+
+<div class="clouds"></div>
 
 <footer>
   <div class="copyright">
     © 2025 Whimsy Hook • Handmade with love 🧶
   </div>
 
+  <div class="contact-text">
+    Contact us on Instagram to order
+  </div>
+
   <a
     class="social-btn"
     href="https://instagram.com/whimsy_hook_store.lb"
     target="_blank">
-    Follow us on Instagram
+    @whimsy_hook_store.lb
   </a>
 </footer>
 
