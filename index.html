@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whimsy Hook</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #cfe9f6, #eaf6fb);
+      color: #2f6fa3;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header img {
+      width: 150px;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      margin: 10px 0;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #fff6e5;
+      font-size: 13px;
+      letter-spacing: 4px;
+      margin-top: 8px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .product {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(10px);
+      border-radius: 26px;
+      width: 230px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.35s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      object-fit: cover;
+      background-color: #ffffffaa;
+    }
+
+    .product h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      margin: 10px 0 6px;
+    }
+
+    /* PRICE → BLUE */
+    .price {
+      color: #2f6fa3;
+      font-size: 15px;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    button, .social-btn {
+      background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
+      color: #fff6e5;
+      border: none;
+      padding: 11px 26px;
+      border-radius: 40px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .about h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #255c88;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 13px;
+    }
+
+    .copyright {
+      color: #fff6e5;
+      margin-bottom: 16px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .product {
+        width: 85%;
+      }
+
+      .about {
+        margin: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.jpg" alt="Whimsy Hook Logo">
+  <h1>Whimsy Hook</h1>
+  <div class="tagline">CROCHET DREAMS INTO REALITY</div>
+</header>
+
+<section class="products">
+
+  <div class="product">
+    <img src="plushie.jpg" alt="Bunny Plushie">
+    <h2>Bunny Plushie</h2>
+    <p class="price">$18</p>
+    <button>Coming Soon</button>
+  </div>
+
+  <div class="product">
+    <img src="plushie2.jpg" alt="Peach Bunny Plushie">
+    <h2>Peach Bunny Plushie</h2>
+    <p class="price">$10</p>
+    <button>Coming Soon</button>
+  </div>
+
+  <div class="product">
+    <img src="scarf.jpg" alt="Scarf">
+    <h2>Scarf</h2>
+    <p class="price">$20</p>
+    <button>Coming Soon</button>
+  </div>
+
+</section>
+
+<section class="about">
+  <h3>More About This Business</h3>
+  <p>
+    This business started off with a friend teaching her best friend how to crochet,
+    and slowly started to grow bigger day by day.  
+    And these best friends built it brick by brick, with love, and purity until its
+    branches grew enormously.  
+    Legends say that till this day, it's still growing...
+  </p>
+</section>
+
+<footer>
+  <div class="copyright">
+    © 2025 Whimsy Hook • Handmade with love 🧶
+  </div>
+
+  <a
+    class="social-btn"
+    href="https://instagram.com/whimsy_hook_store.lb"
+    target="_blank">
+    Follow us on Instagram
+  </a>
+</footer>
+
+</body>
+</html>
+
+
+
+
