@@ -21,6 +21,28 @@ body {
   position: relative;
 }
 
+/* ================= LOADING PAGE ================= */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #cfe9f6, #eaf6fb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 /* ================= STARS ================= */
 .star {
   position: fixed;
@@ -35,36 +57,6 @@ body {
 @keyframes twinkle {
   0%,100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.4); }
-}
-
-/* ================= CLOUDS ================= */
-.cloud {
-  position: fixed;
-  background: white;
-  width: 200px;
-  height: 60px;
-  border-radius: 50px;
-  opacity: 0.9;
-  animation: floatCloud 40s linear infinite;
-}
-
-.cloud::before,
-.cloud::after {
-  content: '';
-  position: absolute;
-  background: white;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  top: -40px;
-}
-
-.cloud::before { left: 30px; }
-.cloud::after { right: 30px; }
-
-@keyframes floatCloud {
-  from { transform: translateX(-250px); }
-  to { transform: translateX(110vw); }
 }
 
 /* ================= HEADER ================= */
@@ -84,6 +76,7 @@ header img {
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 46px;
+  margin: 10px 0;
 }
 
 .tagline {
@@ -221,24 +214,6 @@ button, .social-btn {
   100% { transform: translateY(0); }
 }
 
-/* ================= BUBBLES ================= */
-.bubble {
-  position: fixed;
-  bottom: -60px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-  animation: bubbleUp 8s linear infinite;
-}
-
-@keyframes bubbleUp {
-  to {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
-
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
@@ -253,21 +228,20 @@ footer {
 
 <body>
 
+<!-- LOADING PAGE -->
+<div class="loader">Loading Whimsy… 🧶✨</div>
+
 <!-- STARS -->
 <div class="star" style="top:10%;left:15%"></div>
-<div class="star" style="top:20%;left:60%"></div>
-<div class="star" style="top:30%;left:80%"></div>
-<div class="star" style="top:45%;left:25%"></div>
-<div class="star" style="top:65%;left:70%"></div>
+<div class="star" style="top:18%;left:60%"></div>
+<div class="star" style="top:28%;left:80%"></div>
+<div class="star" style="top:42%;left:25%"></div>
+<div class="star" style="top:60%;left:70%"></div>
 <div class="star" style="top:75%;left:40%"></div>
-
-<!-- CLOUDS -->
-<div class="cloud" style="top:12%; animation-delay:0s;"></div>
-<div class="cloud" style="top:22%; animation-delay:12s;"></div>
-<div class="cloud" style="top:32%; animation-delay:24s;"></div>
+<div class="star" style="top:85%;left:55%"></div>
 
 <header>
-  <img src="logo.jpg">
+  <img src="logo.jpg" alt="Whimsy Hook Logo">
   <h1>Whimsy Hook</h1>
   <div class="tagline">CROCHET DREAMS INTO REALITY</div>
 </header>
@@ -326,12 +300,6 @@ footer {
     @whimsy_hook_store.lb
   </a>
 </footer>
-
-<!-- BUBBLES -->
-<div class="bubble" style="left:15%;animation-delay:0s;"></div>
-<div class="bubble" style="left:35%;animation-delay:2s;"></div>
-<div class="bubble" style="left:55%;animation-delay:4s;"></div>
-<div class="bubble" style="left:75%;animation-delay:1s;"></div>
 
 </body>
 </html>
