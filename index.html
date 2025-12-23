@@ -59,6 +59,38 @@ body {
   50% { opacity: 1; transform: scale(1.4); }
 }
 
+/* ================= CLOUDS ================= */
+.cloud {
+  position: fixed;
+  top: 12%;
+  left: -250px;
+  width: 220px;
+  height: 70px;
+  background: white;
+  border-radius: 60px;
+  opacity: 0.9;
+  animation: cloudMove 50s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  top: -45px;
+}
+
+.cloud::before { left: 30px; }
+.cloud::after { right: 30px; }
+
+@keyframes cloudMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(120vw); }
+}
+
 /* ================= HEADER ================= */
 header {
   text-align: center;
@@ -239,6 +271,11 @@ footer {
 <div class="star" style="top:60%;left:70%"></div>
 <div class="star" style="top:75%;left:40%"></div>
 <div class="star" style="top:85%;left:55%"></div>
+
+<!-- CLOUDS -->
+<div class="cloud" style="top:12%; animation-delay:0s;"></div>
+<div class="cloud" style="top:22%; animation-delay:15s;"></div>
+<div class="cloud" style="top:32%; animation-delay:30s;"></div>
 
 <header>
   <img src="logo.jpg" alt="Whimsy Hook Logo">
