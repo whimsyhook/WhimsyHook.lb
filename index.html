@@ -20,25 +20,6 @@ body {
   overflow-x: hidden;
 }
 
-/* LOADER */
-.loader {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg, #cfe9f6, #eaf6fb);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  z-index: 9999;
-  animation: fadeOut 1s ease forwards;
-  animation-delay: 2.2s;
-}
-
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
 /* HEADER */
 header {
   text-align: center;
@@ -54,6 +35,7 @@ header img {
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 46px;
+  margin: 10px 0;
 }
 
 .tagline {
@@ -62,7 +44,7 @@ h1 {
   letter-spacing: 4px;
 }
 
-/* BUTTONS */
+/* BUTTON STYLE */
 button, .social-btn {
   background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
   color: #fff6e5;
@@ -72,6 +54,47 @@ button, .social-btn {
   font-size: 14px;
   cursor: pointer;
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* PRODUCTS */
+.products {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+.product {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(10px);
+  border-radius: 26px;
+  width: 230px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  transition: 0.35s;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.product h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+}
+
+.price {
+  color: #2f6fa3;
+  font-size: 15px;
+  margin-bottom: 14px;
 }
 
 /* ABOUT */
@@ -113,14 +136,13 @@ button, .social-btn {
   border-radius: 30px;
   backdrop-filter: blur(10px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  position: relative;
 }
 
 /* JELLYFISH */
 .jelly-wrapper {
   position: relative;
   display: inline-block;
-  animation: floatJelly 5s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .jelly-wrapper img {
@@ -128,28 +150,27 @@ button, .social-btn {
   border-radius: 24px;
 }
 
-/* TENTACLES */
 .tentacle {
   position: absolute;
   bottom: -25px;
   width: 6px;
   height: 40px;
-  background: rgba(173, 216, 230, 0.8);
+  background: rgba(173,216,230,0.8);
   border-radius: 10px;
   animation: wiggle 2.5s ease-in-out infinite;
 }
 
-.t1 { left: 35%; animation-delay: 0s; }
-.t2 { left: 45%; animation-delay: .3s; }
-.t3 { left: 55%; animation-delay: .6s; }
-.t4 { left: 65%; animation-delay: .9s; }
+.t1 { left: 38%; }
+.t2 { left: 46%; animation-delay: .3s; }
+.t3 { left: 54%; animation-delay: .6s; }
+.t4 { left: 62%; animation-delay: .9s; }
 
 @keyframes wiggle {
-  0%,100% { transform: rotate(0deg); }
+  0%,100% { transform: rotate(0); }
   50% { transform: rotate(8deg); }
 }
 
-@keyframes floatJelly {
+@keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
   100% { transform: translateY(0); }
@@ -157,20 +178,7 @@ button, .social-btn {
 
 /* STOCK BUTTON */
 .stock-btn {
-  margin-top: 20px;
-}
-
-/* SOLD OUT */
-.sold-out {
-  background: #b8c9d9;
-  color: #ffffff;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  margin-top: 18px;
 }
 
 /* BUBBLES */
@@ -208,7 +216,7 @@ button, .social-btn {
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 35px 20px;
 }
 
 .contact-text {
@@ -219,13 +227,34 @@ footer {
 
 <body>
 
-<div class="loader">Loading Whimsy… 🧶</div>
-
 <header>
-  <img src="logo.jpg">
+  <img src="logo.jpg" alt="Whimsy Hook Logo">
   <h1>Whimsy Hook</h1>
-  <div class="tagline">CROCHET DREAMS INTO REALITY ✨</div>
+  <div class="tagline">CROCHET DREAMS INTO REALITY</div>
 </header>
+
+<section class="products">
+  <div class="product">
+    <img src="plushie.jpg">
+    <h2>Bunny Plushie</h2>
+    <p class="price">$18</p>
+    <button>Coming Soon</button>
+  </div>
+
+  <div class="product">
+    <img src="plushie2.jpg">
+    <h2>Peach Bunny Plushie</h2>
+    <p class="price">$10</p>
+    <button>Coming Soon</button>
+  </div>
+
+  <div class="product">
+    <img src="scarf.jpg">
+    <h2>Scarf</h2>
+    <p class="price">$20</p>
+    <button>Coming Soon</button>
+  </div>
+</section>
 
 <section class="about">
   <h3>More About This Business</h3>
@@ -249,11 +278,7 @@ footer {
       <div class="tentacle t4"></div>
     </div>
 
-    <!-- CHANGE TEXT TO "Sold out" WHEN STOCK = 0 -->
     <button class="stock-btn">4 in stock</button>
-    <!-- Example:
-    <button class="stock-btn sold-out">Sold out</button>
-    -->
   </div>
 </section>
 
@@ -266,12 +291,10 @@ footer {
   </a>
 </footer>
 
-<!-- BUBBLES -->
 <div class="bubble" style="left:10%;animation-delay:0s;"></div>
-<div class="bubble" style="left:25%;animation-delay:2s;"></div>
-<div class="bubble" style="left:50%;animation-delay:4s;"></div>
-<div class="bubble" style="left:70%;animation-delay:1s;"></div>
-<div class="bubble" style="left:85%;animation-delay:3s;"></div>
+<div class="bubble" style="left:30%;animation-delay:2s;"></div>
+<div class="bubble" style="left:55%;animation-delay:4s;"></div>
+<div class="bubble" style="left:75%;animation-delay:1s;"></div>
 
 </body>
 </html>
