@@ -18,12 +18,61 @@ body {
   background: linear-gradient(180deg, #cfe9f6, #eaf6fb);
   color: #2f6fa3;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* HEADER */
+/* ================= STARS ================= */
+.star {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2.5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* ================= CLOUDS ================= */
+.cloud {
+  position: fixed;
+  background: white;
+  width: 200px;
+  height: 60px;
+  border-radius: 50px;
+  opacity: 0.9;
+  animation: floatCloud 40s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: -40px;
+}
+
+.cloud::before { left: 30px; }
+.cloud::after { right: 30px; }
+
+@keyframes floatCloud {
+  from { transform: translateX(-250px); }
+  to { transform: translateX(110vw); }
+}
+
+/* ================= HEADER ================= */
 header {
   text-align: center;
-  padding: 70px 20px 40px;
+  padding: 80px 20px 40px;
+  position: relative;
+  z-index: 2;
 }
 
 header img {
@@ -35,7 +84,6 @@ header img {
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 46px;
-  margin: 10px 0;
 }
 
 .tagline {
@@ -56,7 +104,7 @@ button, .social-btn {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 .products {
   display: flex;
   justify-content: center;
@@ -83,21 +131,18 @@ button, .social-btn {
 .product img {
   width: 100%;
   border-radius: 18px;
-  margin-bottom: 14px;
 }
 
 .product h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 23px;
 }
 
 .price {
   color: #2f6fa3;
-  font-size: 15px;
-  margin-bottom: 14px;
+  margin: 10px 0 14px;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 .about {
   max-width: 800px;
   margin: 60px auto;
@@ -117,7 +162,7 @@ button, .social-btn {
   line-height: 1.9;
 }
 
-/* OCEAN COLLECTION */
+/* ================= OCEAN COLLECTION ================= */
 .collection {
   text-align: center;
   padding: 60px 20px;
@@ -176,12 +221,7 @@ button, .social-btn {
   100% { transform: translateY(0); }
 }
 
-/* STOCK BUTTON */
-.stock-btn {
-  margin-top: 18px;
-}
-
-/* BUBBLES */
+/* ================= BUBBLES ================= */
 .bubble {
   position: fixed;
   bottom: -60px;
@@ -199,24 +239,10 @@ button, .social-btn {
   }
 }
 
-/* CLOUDS */
-.clouds {
-  height: 140px;
-  background: white;
-  border-top-left-radius: 100% 60px;
-  border-top-right-radius: 100% 60px;
-  animation: cloudFloat 6s ease-in-out infinite;
-}
-
-@keyframes cloudFloat {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 35px 20px;
+  padding: 40px 20px;
 }
 
 .contact-text {
@@ -227,8 +253,21 @@ footer {
 
 <body>
 
+<!-- STARS -->
+<div class="star" style="top:10%;left:15%"></div>
+<div class="star" style="top:20%;left:60%"></div>
+<div class="star" style="top:30%;left:80%"></div>
+<div class="star" style="top:45%;left:25%"></div>
+<div class="star" style="top:65%;left:70%"></div>
+<div class="star" style="top:75%;left:40%"></div>
+
+<!-- CLOUDS -->
+<div class="cloud" style="top:12%; animation-delay:0s;"></div>
+<div class="cloud" style="top:22%; animation-delay:12s;"></div>
+<div class="cloud" style="top:32%; animation-delay:24s;"></div>
+
 <header>
-  <img src="logo.jpg" alt="Whimsy Hook Logo">
+  <img src="logo.jpg">
   <h1>Whimsy Hook</h1>
   <div class="tagline">CROCHET DREAMS INTO REALITY</div>
 </header>
@@ -268,7 +307,6 @@ footer {
 
 <section class="collection">
   <h3>the ocean collection 🪼</h3>
-
   <div class="collection-card">
     <div class="jelly-wrapper">
       <img src="jellyfish.jpg">
@@ -277,12 +315,10 @@ footer {
       <div class="tentacle t3"></div>
       <div class="tentacle t4"></div>
     </div>
-
-    <button class="stock-btn">4 in stock</button>
+    <br><br>
+    <button>4 in stock</button>
   </div>
 </section>
-
-<div class="clouds"></div>
 
 <footer>
   <div class="contact-text">Contact us on Instagram to order</div>
@@ -291,15 +327,11 @@ footer {
   </a>
 </footer>
 
-<div class="bubble" style="left:10%;animation-delay:0s;"></div>
-<div class="bubble" style="left:30%;animation-delay:2s;"></div>
+<!-- BUBBLES -->
+<div class="bubble" style="left:15%;animation-delay:0s;"></div>
+<div class="bubble" style="left:35%;animation-delay:2s;"></div>
 <div class="bubble" style="left:55%;animation-delay:4s;"></div>
 <div class="bubble" style="left:75%;animation-delay:1s;"></div>
 
 </body>
 </html>
-
-
-
-
-
