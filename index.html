@@ -8,10 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* BODY */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(180deg, #cfe9f6, #eaf6fb);
@@ -19,7 +21,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= LOADER ================= */
+/* LOADER */
 .loader {
   position: fixed;
   inset: 0;
@@ -38,7 +40,7 @@ body {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* ================= STARS ================= */
+/* STARS */
 .star {
   position: fixed;
   width: 4px;
@@ -54,7 +56,7 @@ body {
   50% { opacity: 1; transform: scale(1.5); }
 }
 
-/* ================= CLOUDS ================= */
+/* CLOUDS */
 .cloud {
   position: fixed;
   left: -250px;
@@ -85,7 +87,7 @@ body {
   to { transform: translateX(130vw); }
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header {
   text-align: center;
   padding: 90px 20px 40px;
@@ -108,19 +110,7 @@ h1 {
   letter-spacing: 4px;
 }
 
-/* ================= BUTTONS ================= */
-button, .social-btn {
-  background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
-  color: #fff6e5;
-  border: none;
-  padding: 11px 28px;
-  border-radius: 999px;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 .products {
   display: flex;
   justify-content: center;
@@ -137,23 +127,71 @@ button, .social-btn {
   padding: 22px;
   text-align: center;
   box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  transition: .35s;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
 }
 
-.product:hover { transform: translateY(-8px); }
+.product:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(47,111,163,0.25);
+}
 
 .product img {
   width: 100%;
   border-radius: 18px;
+  transition: transform 0.4s ease;
+}
+
+.product:hover img {
+  transform: scale(1.08);
 }
 
 .product h2 {
   font-family: 'Playfair Display', serif;
 }
 
-.price { margin: 10px 0 14px; }
+.price {
+  margin: 10px 0 14px;
+}
 
-/* ================= ABOUT ================= */
+button {
+  background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
+  color: #fff6e5;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product:hover button {
+  background: linear-gradient(135deg, #5fa8d3, #7fc8f8);
+  box-shadow: 0 0 15px rgba(127,200,248,0.6);
+}
+
+/* NEW BADGE */
+.new-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff9ecb, #ffc6e0);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  animation: pop 1.8s infinite ease-in-out;
+  z-index: 5;
+}
+
+@keyframes pop {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ABOUT */
 .about {
   max-width: 800px;
   margin: 60px auto;
@@ -170,9 +208,7 @@ button, .social-btn {
   margin-bottom: 15px;
 }
 
-.about p { line-height: 1.9; }
-
-/* ================= COLLECTION ================= */
+/* COLLECTION */
 .collection {
   text-align: center;
   padding: 60px 20px;
@@ -193,7 +229,6 @@ button, .social-btn {
   box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-/* JELLYFISH */
 .jelly-wrapper {
   position: relative;
   animation: float 5s ease-in-out infinite;
@@ -227,55 +262,10 @@ button, .social-btn {
   50% { transform: translateY(-14px); }
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 40px 20px;
-}
-
-/* ================= SOUND BUTTON ================= */
-.sound-toggle {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  font-size: 26px;
-  background: rgba(255,255,255,.7);
-  padding: 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 999;
-}
-
-.sound-toggle::after {
-  content: "tap for ocean sounds 🌊";
-  position: absolute;
-  bottom: 140%;
-  right: 50%;
-  transform: translateX(50%);
-  background: rgba(47,111,163,.9);
-  color: #fff6e5;
-  padding: 6px 12px;
-  border-radius: 14px;
-  font-size: 11px;
-  opacity: 0;
-  transition: .3s;
-}
-
-.sound-toggle:hover::after { opacity: 1; }
-
-/* ================= SPARKLES ================= */
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(#fff6e5, transparent);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sparkle 1.2s forwards;
-}
-
-@keyframes sparkle {
-  to { transform: scale(2); opacity: 0; }
 }
 </style>
 </head>
@@ -283,18 +273,6 @@ footer {
 <body>
 
 <div class="loader">Loading Whimsy… 🧶✨</div>
-
-<!-- STARS -->
-<div class="star" style="top:10%;left:15%"></div>
-<div class="star" style="top:20%;left:70%"></div>
-<div class="star" style="top:40%;left:30%"></div>
-<div class="star" style="top:65%;left:80%"></div>
-<div class="star" style="top:85%;left:50%"></div>
-
-<!-- CLOUDS -->
-<div class="cloud" style="top:12%;animation-delay:0s"></div>
-<div class="cloud" style="top:25%;animation-delay:20s"></div>
-<div class="cloud" style="top:38%;animation-delay:40s"></div>
 
 <header>
   <img src="logo.jpg">
@@ -309,16 +287,26 @@ footer {
     <p class="price">$18</p>
     <button>Coming Soon</button>
   </div>
+
   <div class="product">
     <img src="plushie2.jpg">
     <h2>Peach Bunny Plushie</h2>
     <p class="price">$10</p>
     <button>Coming Soon</button>
   </div>
+
   <div class="product">
     <img src="scarf.jpg">
     <h2>Scarf</h2>
     <p class="price">$20</p>
+    <button>Coming Soon</button>
+  </div>
+
+  <div class="product">
+    <div class="new-badge">JUST DROPPED</div>
+    <img src="scrunchies.jpg">
+    <h2>Scrunchies</h2>
+    <p class="price">$8</p>
     <button>Coming Soon</button>
   </div>
 </section>
@@ -327,9 +315,7 @@ footer {
   <h3>More About This Business</h3>
   <p>
     This business started off with a friend teaching her best friend how to crochet,
-    and slowly started to grow bigger day by day.
-    Built stitch by stitch, with love and purity —
-    legends say it’s still growing ☁️💙
+    and slowly grew into something magical — handmade with love, care, and creativity.
   </p>
 </section>
 
@@ -342,7 +328,8 @@ footer {
       <div class="tentacle t2"></div>
       <div class="tentacle t3"></div>
       <div class="tentacle t4"></div>
-    </div><br><br>
+    </div>
+    <br><br>
     <button>4 in stock</button>
   </div>
 </section>
