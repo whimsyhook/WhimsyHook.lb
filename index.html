@@ -365,51 +365,20 @@ footer {
 </audio>
 
 <script>
-/* SPARKLES */
-document.addEventListener("mousemove", e => {
-  const s = document.createElement("div");
-  s.className = "sparkle";
-  s.style.left = e.clientX + "px";
-  s.style.top = e.clientY + "px";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),1200);
+const btn = document.getElementById("soundBtn");
+const ocean = document.getElementById("oceanSound");
+
+ocean.volume = 0.6;
+
+btn.addEventListener("click", () => {
+  ocean.play().then(() => {
+    btn.textContent = "🔇";
+  }).catch(err => {
+    alert("Tap anywhere on the page first 🌊");
+  });
 });
-
-/* BUBBLE POP */
-const bubble = document.getElementById("bubbleSound");
-document.querySelectorAll("button").forEach(b=>{
-  b.onmouseenter=()=>{bubble.currentTime=0;bubble.play().catch(()=>{})}
-});
-
-/* OCEAN SOUND */
-const btn=document.getElementById("soundBtn");
-const ocean=document.getElementById("oceanSound");
-let unlocked=false,playing=false;
-ocean.volume=0;
-
-document.addEventListener("click",()=>{
-  if(!unlocked){
-    ocean.play().then(()=>ocean.pause());
-    unlocked=true;
-  }
-},{once:true});
-
-function fadeIn(){
-  let v=0;ocean.volume=0;ocean.play();
-  const f=setInterval(()=>{if(v<.6){v+=.02;ocean.volume=v}else clearInterval(f)},80);
-}
-function fadeOut(){
-  let v=ocean.volume;
-  const f=setInterval(()=>{if(v>0){v-=.02;ocean.volume=v}else{ocean.pause();clearInterval(f)}},80);
-}
-
-btn.onclick=()=>{
-  if(!unlocked)return;
-  playing?fadeOut():fadeIn();
-  btn.textContent=playing?"🌊":"🔇";
-  playing=!playing;
-};
 </script>
+
 
 </body>
 </html>
