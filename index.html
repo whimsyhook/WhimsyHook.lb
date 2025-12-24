@@ -8,10 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
 * { box-sizing: border-box; }
 
-/* BODY */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -21,7 +19,7 @@ body {
   position: relative;
 }
 
-/* ================= LOADING PAGE ================= */
+/* ===== LOADER ===== */
 .loader {
   position: fixed;
   inset: 0;
@@ -37,32 +35,27 @@ body {
 }
 
 @keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
 }
 
-/* ================= STARS ================= */
+/* ===== STARS ===== */
 .star {
   position: fixed;
   width: 4px;
   height: 4px;
   background: white;
   border-radius: 50%;
-  opacity: 0.8;
   animation: twinkle 2.5s infinite ease-in-out;
 }
 
 @keyframes twinkle {
-  0%,100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
+  0%,100% { opacity: .3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
 }
 
-/* ================= CLOUDS ================= */
+/* ===== CLOUDS ===== */
 .cloud {
   position: fixed;
-  top: 12%;
   left: -250px;
   width: 220px;
   height: 70px;
@@ -91,7 +84,24 @@ body {
   to { transform: translateX(120vw); }
 }
 
-/* ================= HEADER ================= */
+/* ===== MINI CLOUDS BOTTOM ===== */
+.cloud-mini {
+  position: absolute;
+  bottom: 0;
+  width: 140px;
+  height: 45px;
+  background: white;
+  border-radius: 50px;
+  opacity: .7;
+  animation: floatCloud 6s ease-in-out infinite;
+}
+
+@keyframes floatCloud {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===== HEADER ===== */
 header {
   text-align: center;
   padding: 80px 20px 40px;
@@ -101,14 +111,14 @@ header {
 
 header img {
   width: 150px;
-  border-radius: 18px;
+  border-radius: 20px;
   margin-bottom: 18px;
+  box-shadow: 0 10px 25px rgba(47,111,163,.25);
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 46px;
-  margin: 10px 0;
 }
 
 .tagline {
@@ -117,7 +127,7 @@ h1 {
   letter-spacing: 4px;
 }
 
-/* BUTTON STYLE */
+/* ===== BUTTONS ===== */
 button, .social-btn {
   background: linear-gradient(135deg, #2f6fa3, #4c8dc4);
   color: #fff6e5;
@@ -126,10 +136,16 @@ button, .social-btn {
   border-radius: 999px;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 18px rgba(47,111,163,.35);
+  transition: .35s;
 }
 
-/* ================= PRODUCTS ================= */
+button:hover, .social-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 25px rgba(47,111,163,.45);
+}
+
+/* ===== PRODUCTS ===== */
 .products {
   display: flex;
   justify-content: center;
@@ -139,18 +155,18 @@ button, .social-btn {
 }
 
 .product {
-  background: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,.5);
   backdrop-filter: blur(10px);
   border-radius: 26px;
   width: 230px;
   padding: 22px;
   text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  transition: 0.35s;
+  box-shadow: 0 14px 30px rgba(0,0,0,.1);
+  transition: .35s;
 }
 
 .product:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) rotate(-.5deg);
 }
 
 .product img {
@@ -164,55 +180,43 @@ button, .social-btn {
 
 .price {
   color: #2f6fa3;
-  margin: 10px 0 14px;
 }
 
-/* ================= ABOUT ================= */
+/* ===== ABOUT ===== */
 .about {
   max-width: 800px;
   margin: 60px auto;
   padding: 40px 30px;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,.55);
   border-radius: 30px;
   backdrop-filter: blur(10px);
   text-align: center;
+  box-shadow: 0 14px 35px rgba(0,0,0,.1);
 }
 
-.about h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-}
-
-.about p {
-  line-height: 1.9;
-}
-
-/* ================= OCEAN COLLECTION ================= */
+/* ===== OCEAN COLLECTION ===== */
 .collection {
   text-align: center;
   padding: 60px 20px;
 }
 
-.collection h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 30px;
-}
-
 .collection-card {
-  display: inline-block;
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,.6);
   padding: 30px;
   border-radius: 30px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 14px 35px rgba(0,0,0,.1);
 }
 
-/* JELLYFISH */
 .jelly-wrapper {
   position: relative;
   display: inline-block;
   animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
 }
 
 .jelly-wrapper img {
@@ -220,65 +224,52 @@ button, .social-btn {
   border-radius: 24px;
 }
 
-.tentacle {
-  position: absolute;
-  bottom: -25px;
-  width: 6px;
-  height: 40px;
-  background: rgba(173,216,230,0.8);
-  border-radius: 10px;
-  animation: wiggle 2.5s ease-in-out infinite;
-}
-
-.t1 { left: 38%; }
-.t2 { left: 46%; animation-delay: .3s; }
-.t3 { left: 54%; animation-delay: .6s; }
-.t4 { left: 62%; animation-delay: .9s; }
-
-@keyframes wiggle {
-  0%,100% { transform: rotate(0); }
-  50% { transform: rotate(8deg); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-  100% { transform: translateY(0); }
-}
-
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
+  position: relative;
 }
 
-.contact-text {
-  margin-bottom: 14px;
+/* ===== SPARKLES ===== */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff6e5, transparent);
+  animation: sparkle 4s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%,100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1.4); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADING PAGE -->
 <div class="loader">Loading Whimsy… 🧶✨</div>
 
 <!-- STARS -->
 <div class="star" style="top:10%;left:15%"></div>
-<div class="star" style="top:18%;left:60%"></div>
-<div class="star" style="top:28%;left:80%"></div>
-<div class="star" style="top:42%;left:25%"></div>
-<div class="star" style="top:60%;left:70%"></div>
-<div class="star" style="top:75%;left:40%"></div>
-<div class="star" style="top:85%;left:55%"></div>
+<div class="star" style="top:20%;left:65%"></div>
+<div class="star" style="top:35%;left:80%"></div>
+<div class="star" style="top:60%;left:25%"></div>
+<div class="star" style="top:75%;left:55%"></div>
 
 <!-- CLOUDS -->
-<div class="cloud" style="top:12%; animation-delay:0s;"></div>
-<div class="cloud" style="top:22%; animation-delay:15s;"></div>
-<div class="cloud" style="top:32%; animation-delay:30s;"></div>
+<div class="cloud" style="top:12%;animation-delay:0s"></div>
+<div class="cloud" style="top:22%;animation-delay:18s"></div>
+<div class="cloud" style="top:32%;animation-delay:36s"></div>
+
+<!-- SPARKLES -->
+<div class="sparkle" style="top:40%;left:10%"></div>
+<div class="sparkle" style="top:55%;left:80%"></div>
+<div class="sparkle" style="top:70%;left:45%"></div>
 
 <header>
-  <img src="logo.jpg" alt="Whimsy Hook Logo">
+  <img src="logo.jpg">
   <h1>Whimsy Hook</h1>
   <div class="tagline">CROCHET DREAMS INTO REALITY</div>
 </header>
@@ -317,14 +308,10 @@ footer {
 </section>
 
 <section class="collection">
-  <h3>the ocean collection 🪼</h3>
+  <h3>The ocean collection 🪼</h3>
   <div class="collection-card">
     <div class="jelly-wrapper">
       <img src="jellyfish.jpg">
-      <div class="tentacle t1"></div>
-      <div class="tentacle t2"></div>
-      <div class="tentacle t3"></div>
-      <div class="tentacle t4"></div>
     </div>
     <br><br>
     <button>4 in stock</button>
@@ -336,6 +323,11 @@ footer {
   <a class="social-btn" href="https://instagram.com/whimsy_hook_store.lb" target="_blank">
     @whimsy_hook_store.lb
   </a>
+
+  <!-- bottom clouds -->
+  <div class="cloud-mini" style="left:10%"></div>
+  <div class="cloud-mini" style="left:45%"></div>
+  <div class="cloud-mini" style="left:75%"></div>
 </footer>
 
 </body>
